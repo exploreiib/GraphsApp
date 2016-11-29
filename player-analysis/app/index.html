@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>User Registration and Login Application</title>
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="assets/css/app.css" rel="stylesheet" />
+</head>
+<div style="margin-left:0px"><img src="assets/img/chlogo.png" /> </div>
+<body class="container" style="margin-left:100px">
+    <!-- header -->
+      	
+    <header style="margin-left:10px">
+        <ul class="nav nav-tabs">
+            <li ng-class="{active: activeTab === 'home'}"><a ui-sref="home">Home</a></li>
+			<li ng-class="{active: activeTab === 'customerModel'}"><a ui-sref="customerModel">CustomerModel</a></li>
+			<li ng-class="{active: activeTab === 'dashBoard'}"><a ui-sref="dashBoard">DashBoard</a></li>
+			<!--<li ng-class="{active: activeTab === 'playerCampaign'}"><a ui-sref="playerCampaign">PlayerCampaign</a></li>
+			<li ng-class="{active: activeTab === 'analyticalReps'}"><a ui-sref="analyticalReps">AnalyticalReports</a></li> -->
+            <li ng-class="{active: activeTab === 'account'}"><a ui-sref="account">Account</a></li>
+            <li><a href="/login" target="_self">Logout</a></li>
+        </ul>
+        <div class="flash-message" ng-if="flash">
+            <div class="{{'alert alert-' + flash.type}}" ng-bind="flash.message"></div>
+        </div>
+    </header>
+	
+	
+
+    <!-- main -->
+    <main ui-view></main>
+
+    <!-- footer -->
+    <footer></footer>
+
+    <!-- external scripts -->
+	
+	<script  type="text/javascript" src="dist/tp.js"></script>
+    <script  type="text/javascript" src="dist/core.js"></script>
+    <script  type="text/javascript"  src="dist/main.js"></script>
+	
+    </body>
+</html>

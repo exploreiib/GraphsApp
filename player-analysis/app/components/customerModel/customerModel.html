@@ -1,0 +1,272 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="app-content/app.css" rel="stylesheet" />
+</head>
+<h1 style="color:blue;">CustomerModel</h1>
+<div>
+
+<table>
+<tr>
+<td width="600px"><p> Chisquare's customer modeling is based on the phases decribed below. This approach provides a deep
+      
+	  understandign of the customer database and an effective means for targeting customers with personalized marketing</p></td>
+<td width="200px">&nbsp; </td>
+<td><td align="top" td width="20%"> <select style="background-color: #f9f9f9;" name="period"
+                                    id="period"
+                                    ng-model="distribution.period"
+                                    ng-options="resource.periodID as resource.periodID for resource in periodList"
+									ng-change="updateGraph()"
+                                    >
+              </select>              
+  </td> </td>
+</tr>
+
+</table>
+
+</div>
+
+<div>
+<h1 style="color:blue;">Lifecycle Stages</h1>
+<table>
+<tr>
+<td width="600px"> <p>The top level of segmentation that Optimove performs is based on lifecycle stages.Lifecycle stages represent the different phases that customers acn go through during their relation ship with the company.
+The segmentation allows you to look at these segments of customers in different ways,using different metrics.To see the specific segmentation layers for each lifecycle satge below,click on the lifecycle name in the header.</p></td>
+<td width="200px">&nbsp; </td>
+
+</tr>
+
+</table>
+</div>
+
+<div>
+<table width="1100px">
+<tr> <td width="600px">&nbsp; </td> <td width="500px">&nbsp;</td></tr>
+<tr><td width="600px"><highchart id="chart_lifecycle_pie" config="lifeCyclePiechartConfig" class="span10"></highchart> </td>
+<td align="right"> <highchart id="chart_lifecycle_bar" config="lifeCycleBarchartConfig" class="span10"></highchart></td>
+</tr>
+</table>
+</div>
+<div>
+<h1 style="color:blue;">Segmentation Layers</h1>
+<table>
+<tr>
+<td width="600px"> <p> Key aspects of each customer's behaviour are described by a set of segmentation layers for each lifecycle stage.
+Otimove clusters the customers in each one of the segmentation layers, discovering distinct customer personas.Optimove uses two segmentation methods: Cluster analysis (these averages are blue in the table below) and rule based (relying on marketing understanding and best practices).</p></td>
+<td width="200px">&nbsp; </td>
+<td>&nbsp; </td> 
+</tr>
+</table>
+<table>
+<tr><td width="700px">&nbsp;</td></tr>
+<tr><td width="700px"> <button class="button_proto" style="cursor:pointer;" type="submit" ng-click="displyDaysSinceReg()" >Days Since Registration</button>
+   <button class="button_proto" style="cursor:pointer;" type="submit" ng-click="displyDaysSinceLast()" >Days Since Last Activity</button>
+   <button class="button_proto" style="cursor:pointer;" type="submit" ng-click="displyPlayerActivity()" >Player Activity</button>
+   <button class="button_proto" style="cursor:pointer;" type="submit" ng-click="displyProductPreference()" >Product Preference</button>
+    
+</td> </tr>
+<tr><td>&nbsp;</td></tr>
+</table>
+
+<div ng-show="showDaysSinceReg">
+  <table width="1000px"border="0">
+   <tr><td width="600px">&nbsp;</td><td align="right">Customers</td></tr>
+  </table>
+   
+    <table width="1000px" border="1"> 
+	     
+		<tr ng-repeat="customer in daysSinceRegList.data">
+		 <td width="500px">&nbsp;  {{customer.days_since_reg}}</td>
+ 		 <td width="500px" align="right">&nbsp;{{customer.customers}}</td>
+
+		 </tr>
+		 <tr> <td>&nbsp;</td> <td>&nbsp;</td></tr>
+		 	 
+	</table>
+	<table width="1000px">
+<tr> <td width="500px">&nbsp; </td> <td width="500px">&nbsp;</td></tr>
+<tr><td width="500px"><highchart id="chart_daysSinceReg_pie" config="daysSinceRegPiechartConfig" class="span10"></highchart> </td>
+<td width="500px" align="right" > <highchart id="chart_daysSinceReg_bar" config="daysSinceRegBarchartConfig" class="span10"></highchart></td>
+</tr>
+</table>
+ 
+</div>
+
+<div ng-show="showDaysSinceLastActivity">
+  <table border="0">
+   <tr><td width="700px">&nbsp;</td><td>Customers</td></tr>
+  </table>
+   
+    <table width="1000px" border="1"> 
+	     
+		<tr ng-repeat="customer in daysSinceLastActivityList.data">
+		<td width="600px">&nbsp;  {{customer.days_since_last_activity}}</td>
+ 		 <td width="400px">&nbsp;{{customer.customers}}</td>
+		 </tr>
+		 <tr> <td>&nbsp;</td> <td>&nbsp;</td></tr>
+		 	 
+	</table>
+	<table width="1000px">
+      <tr> <td width="400px">&nbsp; </td> <td width="600px">&nbsp;</td></tr>
+      <tr><td width="400px"><highchart id="chart_daysSinceLast_pie" config="daysSinceLastPiechartConfig" class="span10"> </td>
+           <td width="600px" ><highchart id="chart_daysSinceLast_bar" config="daysSinceLastBarchartConfig" class="span10"></td>
+      </tr>
+    </table>
+ 
+</div>
+
+<div ng-show="showPlayerActivity">
+     <table width="1000px" border="0">
+   <tr>
+   <td width="300px">&nbsp;</td>
+   <td width="200px">Customers</td>
+   <td width="250px"> Second </td>
+   <td width="250px"> Third </td>
+   </tr>
+  </table>
+   
+    <table width="1000px" border="1"> 
+	     
+		<tr ng-repeat="customer in playerActivityList.data">
+		<td width="300px">&nbsp;  {{customer.player_activity}}</td>
+ 		 <td width="200px">&nbsp;{{customer.customers}}</td>
+		  <td width="250px">&nbsp;{{customer.Normalized_Wager_Lifetime}}</td>
+		   <td width="250px">&nbsp;{{customer.Percent_of_Sport_Normalized_Wager_Lifetime}}</td>
+		 </tr>
+		 <tr> &nbsp;</tr>
+		 <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td></tr>
+				 
+	</table>
+	<table width="1000px" border="0">
+      <tr> <td width="500px">&nbsp; </td> <td width="500px">&nbsp;</td></tr>
+      <tr><td width="500px"><highchart id="chart_playerActivity_pie" config="playerActivityPiechartConfig" class="span10"></highchart></td>
+           <td width="500px" align="right"> <highchart id="chart_playerActivity_bar" config="playerActivityBarchartConfig" class="span10"></highchart></td>
+      </tr>
+    </table>
+ 
+</div>
+
+<div ng-show="showProductRefs">
+     <table width="1000px" border="0">
+   <tr>
+   <td width="200px">&nbsp;</td>
+   <td width="200px">Customers</td>
+   <td width="300px">Percentage of Casino Normalized Wager,Lifetime </td>
+   <td width="300px">Percentage of Sports Normalized Wager,Lifetime </td>
+   </tr>
+  </table>
+   
+    <table width="100px" border="1"> 
+	     
+		<tr ng-repeat="customer in productReferenceList.data">
+		<td width="200px">&nbsp;  {{customer.Activity_type}}</td>
+ 		 <td width="200px">&nbsp;{{customer.customers}}</td>
+		  <td width="300px">&nbsp;{{customer.Percent_of_Casino_Normalized_Wager_Lifetime}}</td>
+		   <td width="300px">&nbsp;{{customer.Percent_of_Sport_Normalized_Wager_Lifetime}}</td>
+		 </tr>
+		 <tr> &nbsp;</tr>
+		  <tr> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td> <td>&nbsp;</td></tr>
+				 
+	</table>
+	<table width="1000px" border="0">
+      <tr> <td width="500px">&nbsp; </td> <td width="500px">&nbsp;</td></tr>
+      <tr><td width="500px"><highchart id="chart_productReference_pie" config="productReferencePiechartConfig" class="span10"></highchart></td>
+           <td width="500px" align="right"> <highchart id="chart_productReference_bar" config="productReferenceBarchartConfig" class="span10"></highchart></td>
+      </tr>
+    </table>
+ 
+</div>
+
+<div>
+<h1 style="color:blue;">Micro Segments</h1>
+<table width="1000px">
+<tr>
+<td width="600px"><p> A micro-segment is group of customers with the same "behavioral DNA",
+namely the same combintion of segmentation layer values.This is the most granular level of customer segmentation,
+ and is usefull for discovering insights about small groups of customers .such as which incentives to offer them.
+ Micro-segments also serve as the basis of Optimove's predictive modeling engine.The table below shows
+the characteristics of every micro-segment including its DNA ,past value,conversion rate,churn rate and reactivation rate.</p></td>
+<td width="200px">&nbsp; </td>
+<td align="top" td width="100px"> 
+<div class="well" ng-dropdown-multiselect="" 
+       options="lifeCycleStagedata" 
+	   selected-model="lifeCycleStageModel" 
+	   checkboxes="true" 
+	   extra-settings="lifeCycleStageSettings" 
+	   translation-texts="lifeCycleStageTexts"
+	   events="microSegEvents"></div>
+  </td>
+</tr>
+<tr>&nbsp;</tr>
+</table>
+ <table width="1000px" border="0"> 
+	     <tr>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Micro Segment</th>
+         <th style="background-color: #4CAF50;color: white;" width="150px">Lifecycle Stage</th>
+         <th style="background-color: #4CAF50;color: white;" width="200px">Micro segment DNA</th>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Customers</th>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Past Value</th>
+         <th style="background-color: #4CAF50;color: white;" width="75px">Future Value</th>
+         <th style="background-color: #4CAF50;color: white;" width="75px">Conversion Rate</th>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Chaurn Rate</th>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Reactivation Rate</th>
+
+        </tr>
+		</table>
+		<table width="1000px" border="1"> 
+		<tr ng-repeat="mircrosegment in microSegmentList.data">
+		 <td width="100px">{{mircrosegment.microsegment}}</td>
+ 		 <td width="150px">{{mircrosegment.life_cycle_stages}}</td>
+		 <td width="200px">{{mircrosegment.microsegment_dna}}</td>
+		 <td width="100px">{{mircrosegment.customers}}</td>
+		 <td width="100px">{{mircrosegment.past_value}}</td>
+		 <td width="75px">{{mircrosegment.future_value}}</td>
+		 <td width="75px">{{mircrosegment.conversion_rate}}</td>
+		 <td width="100px">{{mircrosegment.churn_rate}}</td>
+		 <td width="100px">{{mircrosegment.reactivation_rate}}</td>
+
+		 </tr>
+	</table>
+
+
+</div>
+
+<div>
+<h1 style="color:blue;">Value Segments</h1>
+<table width="900px">
+<tr>
+<td width="600px"><p> value segmentation is the grouping of customers according to their expected
+ future value,which is based on past behaviour patterns.Because value groups cut across life cycle 
+ stages,it is useful to look at a customer's value segment when deciding on policies,
+ such as service levels and error remediation compensation levels.</p></td>
+<td width="300px">&nbsp; </td>
+</tr>
+<tr>&nbsp;</tr>
+</table>
+ <table width="1000px" border="0"> 
+	     <tr border="0">		 
+         <th style="background-color: #4CAF50;color: white;" width="100px">&nbsp;</th>
+         <th style="background-color: #4CAF50;color: white;" width="150px">Micro Segment</th>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Customers</th>
+         <th style="background-color: #4CAF50;color: white;" width="100px">Avg. Future Value</th>
+         <th style="background-color: #4CAF50;color: white;" width="150px">Future value Range</th>
+         <th style="background-color: #4CAF50;color: white;" width="300px">&nbsp;</th>
+         </tr>
+		</table>
+  <table width="1000px" border="1"> 
+		<tr  style="tr:nth-child(even) {background-color: #f2f2f2}" ng-repeat="valuesegment in valueSegmentList.data">
+		 <td width="100px">{{valuesegment.life_cycle_stages}}</td>
+		 <td width="150px">{{valuesegment.micro_segments}}</td>
+		 <td width="100px">{{valuesegment.customers}}</td>
+		 <td width="100px">{{valuesegment.avg_future_value}}</td>
+		 <td width="150px">{{valuesegment.future_value_range}}</td>
+		 <td width="300px">{{valuesegment.Description}}</td>
+		</tr>
+	</table>
+
+
+</div>
+
+
+
+</div>
