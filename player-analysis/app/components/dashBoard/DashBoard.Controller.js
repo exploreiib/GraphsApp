@@ -125,7 +125,16 @@ function populateGraphListData(){
 	 options: {
             chart: {
                 type: 'line'
-            }
+            },
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
         series: [{
             data: readColumnData(id,'value')
@@ -148,7 +157,16 @@ function populatemodelBasedTrendGraphs(id){
 	 options: {
             chart: {
                 type: 'line'
-            }
+            },
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
         series: [{
             data: readColumnData('sport_bet','value')
@@ -201,7 +219,16 @@ function populatemodelBasedTrendGraphs(id){
 				},
 				  tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
-            }
+            },
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
 		
 		credits: {
@@ -267,7 +294,16 @@ function populatemodelBasedTrendGraphs(id){
 					title: {
 					text: 'Future Value Prediction'
 					}
-				}
+				},
+				
+													exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
 		
 		plotOptions: {
@@ -309,6 +345,15 @@ function populatemodelBasedTrendGraphs(id){
 					}				
 				},
 				colors: ['#ED561B', '#5C2508'],
+				
+													exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
 				
         },
 		

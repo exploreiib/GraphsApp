@@ -1,0 +1,226 @@
+﻿<div>
+<h1 style="color:blue;">Conversion Rate</h1>
+</div>
+<br>
+
+<td align="right" td width="50%" style="float:right;">
+<select style="background-color:#f9f9f9;float:right;margin-bottom:20px;"
+		name="period" id="period"
+        ng-model="distribution.period"
+        ng-options="resource.periodID as resource.periodID for resource in periodList"
+		ng-change="updateGraph()">
+</select>              
+</td> 
+
+<div>
+
+<table width="1100px">
+<tr>
+<td width="600px"><highchart id="chart_lifecycle_pie1" config="lifeCyclePiechartConfig1" class="span10"></highchart></td>
+<td align="right"><highchart id="chart_lifecycle_pie2" config="lifeCyclePiechartConfig2" class="span10"></highchart></td>
+</tr>
+</table>
+	  
+<br><br>
+
+<table width="1100px">
+<tr>
+<td align="right" width="900px"> <highchart id="chart_lifecycle_bar1" config="lifeCycleBarchartConfig1" class="span10"></highchart></td>
+<td align="right" style="background-color:#fff;"></td>
+</tr>
+</table>
+
+<br><br>
+<div>
+<h1 style="color:blue;">Product Distribution</h1>
+</div>
+
+<div id="venn" style="float:left;margin-top:90px;">
+<div class="one"><p>Only Sport<br />13,711<br />58.7%</p></div>
+<div class="one"><p>Only Casino<br />204<br />0.9%</p></div>
+<div id="overlap"><p>Hybrid<br/>9,433<br />40.4%</p></div>
+</div>
+
+<style>
+#venn .one{padding:100px 0 0 100px;}
+#venn p{color:#fff;}
+#venn div{
+	height: 269px;
+	width: 269px;
+	border-radius:180px;
+	-khtml-border-radius:180px;
+	-moz-border-radius:180px;		
+	-webkit-border-radius:180px;
+	border: 1px solid #000;
+	display: table;
+	float: left;
+	opacity: .6;
+}
+#venn div:nth-child(1){
+	background-color: #FF0000;
+	color: #FFF;
+	/*padding-right: 60px;*/
+} 
+#venn div:nth-child(2){
+	background-color: #0000FF;
+	color: #FFF;
+	margin-left: -80px;
+	/*padding-left: 60px;*/
+}
+#venn #overlap{
+	border: 0;
+	height: 30px;
+	width: 30px;
+	left: -254px;
+	top: 100px;
+	color: #fff;
+	position: relative;
+	text-align: center;
+	z-index: 10;
+	opacity: 1;
+}
+</style>
+
+<div style="float:left;"><highchart id="chart_lifecycle_pie3" config="lifeCyclePiechartConfig3" class="span10"></highchart></div>
+
+<img src="assets/img/rt_arw.png" style="margin-left:232px;margin-top:-15px;width:361px;height:90px;z-index:1">
+
+<br> <br>
+
+<div>
+<h1 style="color:blue;">Player Distribution by Value Groups</h1>
+</div>
+<p>Monetary Values are calculated based on Points earned by players through Sportsbook and Casino. Higher the number of points higher the monetary value of a player. Players are segmented into 5 buckets:</p>
+<ul>
+<li>Premium &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > 2500 points in lifetime</li>
+<li>High &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > 500 points in lifetime</li>
+<li>Average &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > 100 points in lifetime</li>
+<li>Low Value &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; > 25 points in lifetime</li>
+<li>Marginal &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <= 25 points in lifetime</li>
+</ul>
+
+<table width="1100px" style="margin-top:50px;">
+<tr><td width="600px"><highchart id="chart_lifecycle_bar2" config="lifeCycleBarchartConfig2" class="span10"></highchart></td>
+<td align="right"><highchart id="chart_lifecycle_pie4" config="lifeCyclePiechartConfig4" class="span10"></highchart></td>
+</tr>
+</table>
+
+<br> <br>
+<div>
+<h1 style="color:blue;">Player Distribution by Survival Rate Status</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr>
+<td width="600px"><highchart id="chart_lifecycle_pie5" config="lifeCyclePiechartConfig5" class="span10"></highchart></td>
+<td style="background-color:#fff;padding:20px;"><p>> 30% of the current database is either in Poorly, Coma and Dead<br />
+Analysis based on player’s recency (when the player makes the last visit or paying visit to the system, this also takes into account the frequency of visits of a player within his active life on the system.<br />
+Judging by likelihood of being on the system the players are segmented into 5 recency groups:</p>
+<ul>
+<li>Fit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		> 75%</li>
+<li>Well &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		> 55%</li>
+<li>Poorly &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		> 30%</li>
+<li>Coma &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		> 10%</li>
+<li>Dead &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<= 10%</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br> <br>
+<div>
+<h1 style="color:blue;">Weekly Retention Rate</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr>
+<td width="600px"><highchart id="chart_lifecycle_bar1" config="lifeCycleBarchartConfig3" class="span10"></highchart></td>
+<td style="background-color:#fff;padding-left:20px;"><p>First two weeks has the most significant drop,following this,the trend then stabilizes</p>
+</td>
+</tr>
+</table>
+
+<br> <br>
+<div>
+<h1 style="color:blue;">Product Frequency</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr>
+<td width="600px">	<highchart id="future_prediction_chart" config="futurePredictionChartConfig1" class="span10"></highchart></td>
+<td style="background-color:#fff;padding-left:20px;">
+<ul>
+<li>66% of the Players on Casino have 1 to 2 APDs</li>
+<li>35.4 of the players on sports have 1 to 2 APDs</li>
+</ul>
+</td>
+</tr>
+</table>
+
+<br><br>
+<div>
+<h1 style="color:blue;">Deposit Progression</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr><td width="600px">	<highchart id="deposit_progression" config="lifeCycleLinechartConfig1 " class="span10"></highchart> </td>
+<td style="background-color:#fff;padding-left:50px;">
+<p>~66% of the players do not make the second deposit</p>
+</td>
+</tr>
+</table>
+
+<br><br>
+<div>
+<h1 style="color:blue;">Revenue Distribution</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr>
+<td width="600px"><highchart id="chart_live_customer_trend" config="liveCustomerTrendsChartConfig" class="span10"></highchart></td>
+<td style="background-color:#fff;padding-left:50px;">
+<p>~87% of Revenues generated by 18% of the players</p></td>
+</tr>
+</table>
+
+<br> <br>
+<div>
+<h1 style="color:blue;">Survivability Analysis</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr>
+<td width="600px"><highchart id="survivability_analysis" config="survivabilityanalysisconfig" class="span10"></highchart></td>
+<td style="background-color:#fff;padding-left:50px;">
+<p>~59% of players do not survive beyond 4 weeks after first deposit day</p>
+</td>
+</tr>
+</table>
+
+<br><br>
+<div>
+<h1 style="color:blue;">Migration Between Products</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr><td width="600px"><highchart id="migration" config="migrationconfig" class="span10"></highchart></td>
+<td style="background-color:#fff;padding-left:50px;">
+<p>~73% of the Players migrate(Cross play) on other product within 7 daysof making first deposit</p>
+</td>
+</tr>
+</table>
+
+<br><br>
+<div>
+<h1 style="color:blue;">Retention Curve</h1>
+</div>
+
+<table width="1100px" style="margin-top:50px;">
+<tr>
+<td width="600px"><highchart id="retention_curve" config="retentionconfig" class="span10"></highchart></td>
+<td style="background-color:#fff;padding-left:50px;">
+<p>Retention Curve Actual vs standard</p></td>
+</tr>
+</table>
+
+</div>

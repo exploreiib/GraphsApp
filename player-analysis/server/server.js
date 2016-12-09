@@ -4,7 +4,7 @@ var app = express();
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var expressJwt = require('express-jwt');
-var config = require('config.json');
+var config = require('./config.json');
 
 app.set('view engine', 'ejs');
 //app.set('views', __dirname + '/views');
@@ -33,7 +33,12 @@ var xlFileList = ['days_since_last_activity.csv.xlsx','days_since_reg.csv.xlsx',
 'live_customers_trend.csv.xlsx','custom_kpi_data.csv.xlsx',
 'model_based_kpi_data.csv.xlsx','predicted_future_value.csv.xlsx','Revenue_Casino.csv.xlsx',
 'Revenue_Sport.csv.xlsx','Net_Cash.csv.xlsx','per_Customer.csv.xlsx','Total_deposits.csv.xlsx',
-'New_Depositors.csv.xlsx','who_deposited.csv.xlsx','casino_bet.csv.xlsx','sport_bet.csv.xlsx'];
+'New_Depositors.csv.xlsx','who_deposited.csv.xlsx','casino_bet.csv.xlsx','sport_bet.csv.xlsx','romania_1.csv.xlsx',
+'romania_2.csv.xlsx','romania_3.csv.xlsx','product_distribution.csv.xlsx','product_distribution_bar.csv.xlsx',
+'product_distribution_pie.csv.xlsx','survival_rate.csv.xlsx','retention_rate.csv.xlsx',
+'product_frequency.csv.xlsx','deposit_progression.csv.xlsx','revenue_distribution.csv.xlsx',
+'product_frequency.csv.xlsx','deposit_progression.csv.xlsx','survivability_analysis.csv.xlsx',
+'migration.csv.xlsx','retention.csv.xlsx','dashboard_new.csv.xlsx','player_data.csv.xlsx'];
 //var xlFileList = ['days_since_reg.csv.xlsx','life_cycle.csv.xlsx']
 
 for (index=0;index < xlFileList.length; index++){
@@ -81,7 +86,11 @@ directory+'valueseg.json',directory+'effective_campaigns.json',directory+'live_c
 directory+'custom_kpi_data.json',directory+'model_based_kpi_data.json',directory+'predicted_future_value.json',
 directory+'Revenue_Casino.json',directory+'Revenue_Sport.json',directory+'Net_Cash.json',directory+'per_Customer.json',
 directory+'Total_deposits.json',directory+'New_Depositors.json',directory+'who_deposited.json',directory+'casino_bet.json',
-directory+'sport_bet.json'];
+directory+'sport_bet.json',directory+'romania_1.json',directory+'romania_2.json',directory+'romania_3.json',
+directory+'product_distribution.json',directory+'product_distribution_bar.json',directory+'product_distribution_pie.json',
+directory+'survival_rate.json',directory+'retention_rate.json',directory+'product_frequency.json',directory+'deposit_progression.json',
+directory+'revenue_distribution.json',directory+'survivability_analysis.json',directory+'migration.json',directory+'retention.json',
+directory+'dashboard_new.json',directory+'player_data.json'];
 
 
 function readAsync(file, callback) {

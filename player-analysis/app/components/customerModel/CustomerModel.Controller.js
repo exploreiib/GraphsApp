@@ -185,7 +185,14 @@
                             },
 				            tooltip: {
                                pointFormat: '{series.name}: <b>{point.y}%</b>'
-                            }
+                            },
+							exporting:{
+								buttons: {
+							     		contextButton:{
+											enabled : false
+										}
+									}
+							}							
                         },
 		
 		                title: {
@@ -224,7 +231,14 @@
       enabled: false
   },
 			
-			legend: { enabled: false}
+			legend: { enabled: false},
+			exporting: {
+						  buttons: {
+							    		contextButton:{
+												enabled : false
+											}
+									}
+						}			
 			/*	  ,tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
             }*/
@@ -306,7 +320,15 @@
   },
 				  tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
-            }
+            },
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
 		
 		
@@ -346,7 +368,16 @@
       enabled: false
   },
 			
-			legend: { enabled: false}
+			legend: { enabled: false},
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
 			/*	  ,tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
             }*/
@@ -445,7 +476,16 @@
   },
 				  tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
-            }
+            },
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
 		
 		
@@ -485,7 +525,16 @@
 					  enabled: false
 			   },
 							
-			legend: { enabled: false}
+			legend: { enabled: false},
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
 			/*	  ,tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
             }*/
@@ -576,7 +625,16 @@
   },
 				  tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
-            }
+            },
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
 		
 		
@@ -615,7 +673,16 @@
       enabled: false
   },
 			
-			legend: { enabled: false}
+			legend: { enabled: false},
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
 			/*	  ,tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
             }*/
@@ -704,7 +771,16 @@
   },
 				  tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
-            }
+            },
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
         },
 		
 		
@@ -743,7 +819,17 @@
       enabled: false
   },
 			
-			legend: { enabled: false}
+			legend: { enabled: false},
+			
+												exporting:{
+										
+										buttons: {
+											contextButton:{
+												enabled : false
+											}
+										}
+									}
+									
 			/*	  ,tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}%</b>'
             }*/

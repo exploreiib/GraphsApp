@@ -40,7 +40,7 @@
 <div style="width: 100%; overflow: hidden;">
     <div style="width: 600px; float: left;">
 	   <text  style=" font-weight: bold; font-size: 15px;">Custom KPIs</text>
-       <text  style=" font-weight: bold; font-size: 15px; color:green">  </text>
+       <text  style=" font-weight: bold; font-size: 15px; color:green">/28 August- 10September 2016 </text>
 
 	<p style="margin-top: 20px;margin-bottom: 5px;">&nbsp; </p>
     <p>These KPIs represent the most important customer metrics in your business.
@@ -54,8 +54,8 @@
 		 <td style=" text-align:right;">average of last 13 periods</th>
 		 <td>&nbsp;</td>
          </tr>
-	 </table>
-	 <table border="0">
+	 </table border="0">
+	 <table>
 		<tr  style="tr:nth-child(even) {background-color: #f2f2f2}" ng-repeat="customKPI in customKPIList.data">
 		 <td width="270px">{{customKPI.custom_kpi}}</td>
 		 <td style="text-align:center">{{customKPI.Current_Period}}</td>
@@ -80,7 +80,7 @@
 <div style="width: 100%; overflow: hidden;">
     <div style="width: 600px; float: left;">
 	   <text  style=" font-weight: bold; font-size: 15px;">Model Based KPIs</text>
-       <text  style=" font-weight: bold; font-size: 15px; color:green"></text>
+       <text  style=" font-weight: bold; font-size: 15px; color:green">/10September 2016 </text>
 
 	<p style="margin-top: 20px;margin-bottom: 5px;">&nbsp; </p>
     <p>These KPIs are derived from the Chisquare Data Analytics providing insight into the overall state of your customer base.
@@ -106,12 +106,13 @@ improvement, while red indicates worsening</p>
 		</tr>
 	</table>
 	</div>
-    <div style="margin-left: 620px;"> <text  style="text-align:center;font-weight: bold; font-size: 15px;">&nbsp;</text>
+    <div style="margin-left: 620px;"> <text  style=" text-align:center;font-weight: bold; font-size: 15px;">&nbsp;</text>
 	<p style="margin-top: 50px;margin-bottom: 20px;">&nbsp; </p>
 	<div id="modelBasedTrend">
 	<highchart id="modelBasedtrnd" config="modelBasedTrendConfig" class="span10"></highchart>
     </div>
-</div>
+
+	</div>
 </div>
 
 
@@ -123,7 +124,7 @@ improvement, while red indicates worsening</p>
     <div style="width: 600px; float: left;">
 	<text  style=" font-weight: bold; font-size: 15px;">Predicted Future Value Trend</text>
 	<p style="margin-top: 20px;margin-bottom: 5px;">&nbsp; </p>
-    <p>The total predicted future value is the predicted future value of your current customer base plus the predicted future value of 
+    <p> The total predicted future value is the predicted future value of your current customer base plus the predicted future value of 
 	all new customers expected to be aquired during the next 1 year. The future value distribution chart indicates the 
 	Contribution of each group (Existing customers and future customers) to the total predicted future value
 	</p>

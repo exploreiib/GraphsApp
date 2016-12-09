@@ -1,0 +1,18 @@
+﻿<div>
+
+<select style="background-color: #f9f9f9;float:right;margin:20px 50px; width:153px;height:20px;"
+                                    name="product"
+                                    id="product"
+                                    ng-model="cohort.product"
+                                    ng-options="product.productID as product.productID for product in productList"
+									ng-change="updateGraph()"
+                                    >
+</select>              
+
+</div>
+
+<div style="width: 750px; height: 600px; margin: 0 auto">
+<highchart id="cohort" config="heatMapchartConfig" class="span10"></highchart>
+<!--<iframe height="700px" width="80%" style="border:0;" src="http://localhost:3000/app/heatmap.html"></iframe> --> 
+</div>
+<!--<img href="" ng-click="campAnalysisPopup(meCampaigns.Marketing_Action)" size="10px" ng-src="../app/img/inc.png" />-->	

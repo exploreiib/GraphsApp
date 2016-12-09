@@ -1,3 +1,4 @@
+;(function(angular) {
 (function() {
 /* Start angularLocalStorage */
 'use strict';
@@ -402,6 +403,7 @@ angularLocalStorage.provider('localStorageService', function() {
 (function () {
     'use strict';
 
+    Service.$inject = ["$rootScope"];
     angular
         .module('app')
         .factory('FlashService', Service);
@@ -455,6 +457,7 @@ angularLocalStorage.provider('localStorageService', function() {
 (function () {
     'use strict';
 
+    Service.$inject = ["$http", "$q"];
     angular
         .module('app')
         .factory('UserService', Service);
@@ -512,3 +515,5 @@ angularLocalStorage.provider('localStorageService', function() {
     }
 
 })();
+
+})(angular);

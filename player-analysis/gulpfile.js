@@ -35,11 +35,12 @@ const paths = {
     './app/assets/third-party/angular-highlightjs.js',
     './app/assets/third-party/ui-bootstrap-tpls.js',
     './app/assets/third-party/angularjs-dropdown-multiselect.js',
-    './app/assets/third-party/highcharts.src.js',
+    './app/assets/third-party/highcharts.js',	
     './app/assets/third-party/highcharts-ng.min.js',
     './app/assets/third-party/highcharts-3d.js',
     './app/assets/third-party/exporting.js',
-    './app/assets/third-party/highcharts.js'	
+    './app/assets/third-party/heatmap.js'
+
   ],
 
   appcommon: [
@@ -52,6 +53,14 @@ const paths = {
   ],
   templates: [
     './app/components/**/*.html'
+  ],
+  annotateAppCommon: [
+    './app/dist/js/common/*.js'
+  ],
+  
+  annotateAppmainScript: [
+    './app/dist/js/main/app.js',
+    './app/dist/js/main/**/*.js'
   ]
 }
 
@@ -111,6 +120,8 @@ gulp.task('compress-thirdparty', function() {
 gulp.task('compress-appcommon',['compress-thirdparty'], function() {  
   return gulp.src(paths.appcommon)
     .pipe(concat('core.js'))
+	.pipe(closure({angular: true}))
+    .pipe(ngannotate())
     //.pipe(md5(10))
     .pipe(gulp.dest('./app/dist'))
     .pipe(filesize())
@@ -126,6 +137,8 @@ gulp.task('compress-appcommon',['compress-thirdparty'], function() {
 gulp.task('compress-appmainscript',['compress-appcommon'], function() {  
   return gulp.src(paths.appmainscript)
     .pipe(concat('main.js'))
+	.pipe(closure({angular: true}))
+    .pipe(ngannotate())
     //.pipe(md5(10))
     .pipe(gulp.dest('./app/dist'))
     .pipe(filesize())
@@ -192,13 +205,34 @@ gulp.task('appmainscript', ['appcommon'], function() {
     .pipe(gulp.dest('./app/dist'))
 })
 
+
+gulp.task('templatecache', function(done){
+  gulp.src(paths.templates)
+  .pipe(templateCache({standalone:true}))
+  .pipe(gulp.dest('./app/dist'))
+  .on('end', done);
+});
+ 
+gulp.task('ng_annotate_main', function (done) {
+  gulp.src(paths.appmainscript)
+  .pipe(ngAnnotate({single_quotes: true}))
+  .pipe(gulp.dest('./app/dist/js/main'))
+  .on('end', done);
+});
+
+gulp.task('ng_annotate_common', function (done) {
+  gulp.src(paths.appcommon)
+  .pipe(ngAnnotate({single_quotes: true}))
+  .pipe(gulp.dest('./app/dist/js/common'))
+  .on('end', done);
+});
 /**
 * The command `gulp` will resolve in `gulp scripts`
 */
 //gulp.task('default', ['compress-appmainscript'])
 
 gulp.task('default', function(cb) {
-    runSequence('clean-all', 'compress-appmainscript', cb);
+    runSequence('clean-all', 'compress-appmainscript', 'templatecache',cb);
 });
 
 /**
